@@ -239,7 +239,7 @@ fn get_all_disks_inner(content: &str) -> Vec<Disk> {
             !(filtered ||
                fs_file.starts_with("/sys") || // check if fs_file is an 'ignored' mount point
                fs_file.starts_with("/proc") ||
-               (fs_file.starts_with("/run") && !fs_file.starts_with("/run/media")) ||
+               (fs_file.starts_with("/run") && !fs_file.starts_with("/run/kata-containers")) ||
                fs_spec.starts_with("sunrpc"))
         })
         .filter_map(|(fs_spec, fs_file, fs_vfstype)| {
